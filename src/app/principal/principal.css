@@ -1,13 +1,22 @@
-/* Quitar márgenes y bordes del body */
 :host {
   display: block;
   margin: 0;
   padding: 0;
   height: 100vh;
-  background: #0d0d0d;
-  color: white;
   font-family: 'Segoe UI', sans-serif;
+  color: white;
+  background: linear-gradient(
+    180deg,       /* Dirección del degradado (de arriba a abajo) */
+    #ffffff 0%,    /* Blanco arriba */
+    #cccccc 25%,   /* Gris claro */
+    #999999 50%,   /* Gris medio */
+    #333333 75%,   /* Gris oscuro */
+    #000000 100%   /* Negro abajo */
+  );
 }
+
+
+
 
 /* Quitar bordes blancos en todo */
 * {
@@ -42,6 +51,7 @@
   cursor: pointer;
   transition: 0.3s ease;
   font-size: 1rem;
+
 }
 
 .btn:hover {
@@ -55,6 +65,7 @@
 
 .btn-outline:hover {
   background: #555;
+  
 }
 
 /* Centro del texto */
