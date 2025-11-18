@@ -1,1 +1,57 @@
-<p>usuarios works!</p>
+<header class="header">
+  Gestión de Usuarios
+</header>
+
+
+
+<div class="form-container">
+  <h2>Agregar Usuario</h2>
+
+  <form id="formUsuario">
+      <div class="form-row">
+          <label>Username:</label>
+          <input type="text" id="username" required>
+      </div>
+
+      <div class="form-row">
+          <label>Password:</label>
+          <input type="password" id="password" required>
+      </div>
+
+      <div class="form-row">
+          <label>Nombre:</label>
+          <input type="text" id="nombre" required>
+      </div>
+
+      <div class="form-row">
+          <label>Apellidos:</label>
+          <input type="text" id="apellidos" required>
+      </div>
+
+      <div class="form-row">
+          <label>Fecha Registro:</label>
+          <input type="date" id="fechaRegistro" required>
+      </div>
+
+      <div class="form-row">
+          <label>Fecha Nacimiento:</label>
+          <input type="date" id="fechaNacimiento" required>
+      </div>
+
+      <div class="form-row">
+          <label>Dirección:</label>
+          <input type="text" id="direccion" required>
+      </div>
+
+      <div class="form-row">
+        <label>Perfil:</label>
+        <select id="perfil" required>
+            <option value="">Seleccione un perfil</option>
+            <option value="Trabador">Trabajador</option>
+            <option value="Jefe">Jefe</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn">Agregar Usuario</button>
+  </form>
+</div>

@@ -1,19 +1,20 @@
-<nav class="navbar">
-    <div class="nav-content">
-      <div class="nav-buttons">
-        <button routerLink="/usuarios" class="btn">usuarios</button>
-        <button routerLink="/login" class="btn btn-outline">Inicio de sesión</button>
-      </div>
-    </div>
-  </nav>
+<div class="container">
+  <h1 class="welcome-text">Panel de Administración</h1>
   
-  <div class="hero-container">
-    <h1 class="welcome-text">Bienvenido a la pagina principal de los administradores</h1>
-  </div><p>admin-principal works!</p>
-
-
-
-
- 
-
+  <div class="buttons-container">
+    <div class="button-wrapper">
+      <button routerLink="/usuarios" class="btn btn-usuarios">
+        <span class="btn-icon">👥</span>
+        <span class="btn-text">Gestionar Usuarios</span>
+      </button>
+    </div>
+    
+    <div class="button-wrapper">
+      <button routerLink="/login" class="btn btn-logout">
+        <span class="btn-icon">🚪</span>
+        <span class="btn-text">Cerrar Sesión</span>
+      </button>
+    </div>
+  </div>
+</div>
 
