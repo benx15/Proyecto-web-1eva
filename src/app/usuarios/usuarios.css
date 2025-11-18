@@ -1,3 +1,13 @@
+/* Fondo general de toda la página */
+html, body {
+  background-color: #000; /* negro */
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
+}
+
 /* Franja superior */
 .header {
   background-color: #000;
@@ -6,22 +16,21 @@
   font-size: 22px;
   text-align: center;
   font-weight: bold;
-  font-family: 'Segoe UI', sans-serif;
 }
 
-/* Contenedor para centrar la tabla */
+/* Contenedor de la tabla */
 .table-container {
   margin: 40px auto;
   width: 90%;
   max-width: 1200px;
 }
 
-/* Estilo general de la tabla */
+/* Tabla */
 table {
   width: 100%;
   border-collapse: collapse;
   font-family: 'Segoe UI', sans-serif;
-  background: #fff;
+  background: #fff; /* fondo blanco solo de la tabla */
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
@@ -47,28 +56,32 @@ tbody tr:nth-child(even) {
   background-color: #f7f7f7;
 }
 
-/* Hover */
+/* Hover de filas */
 tbody tr:hover {
   background-color: #e8e8e8;
 }
 
+/* Contenedor del formulario */
 .form-container {
   margin: 50px auto;
   width: 90%;
   max-width: 600px;
   padding: 25px;
-  background: #fff;
+  background: #cecece; /* gris claro */
   border-radius: 8px;
   box-shadow: 0px 0px 12px rgba(0,0,0,0.15);
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Georgia', serif;
 }
 
+/* Título del formulario */
 .form-container h2 {
   text-align: center;
   margin-bottom: 20px;
   color: #222;
+  font-family: 'Georgia', serif;
 }
 
+/* Filas del formulario */
 .form-row {
   display: flex;
   flex-direction: column;
@@ -80,13 +93,38 @@ tbody tr:hover {
   margin-bottom: 5px;
 }
 
-.form-row input {
+/* Inputs y selects */
+.form-row input,
+.form-row select {
   padding: 10px;
-  border: 1px solid #bbb;
+  border: 1px solid #6d6d6d;
   border-radius: 5px;
   font-size: 15px;
+  background-color: #fff; /* blanco por defecto */
+  color: #000; /* texto negro */
+  transition: all 0.3s ease;
 }
 
+/* Hover y focus */
+.form-row input:hover,
+.form-row input:focus,
+.form-row select:hover,
+.form-row select:focus {
+  background-color: #000; /* fondo negro */
+  color: #fff; /* texto blanco */
+  outline: none;
+}
+
+/* Inputs de fecha: calendario blanco al hover/focus */
+#fechaRegistro:hover::-webkit-calendar-picker-indicator,
+#fechaRegistro:focus::-webkit-calendar-picker-indicator,
+#fechaNacimiento:hover::-webkit-calendar-picker-indicator,
+#fechaNacimiento:focus::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}
+
+/* Botón */
 .btn {
   width: 100%;
   padding: 12px;
@@ -98,18 +136,27 @@ tbody tr:hover {
   cursor: pointer;
   margin-top: 10px;
   font-weight: bold;
+  transition: background 0.3s ease;
 }
 
+/* Hover del botón */
 .btn:hover {
-  background: #333;
+  background: #333; /* gris oscuro */
 }
 
-
+/* Select cursor */
 .form-row select {
-  padding: 10px;
-  border: 1px solid #bbb;
-  border-radius: 5px;
-  font-size: 15px;
-  background-color: #fff;
   cursor: pointer;
 }
+
+main{
+  display: flex;
+  justify-content: center; /* centrado horizontal */
+  align-items: flex-start; /* alineado al inicio (arriba) */
+  flex-direction: column;  /* columnas verticales */
+  min-height: 100vh;       /* al menos toda la altura de la pantalla */
+  padding-top: 10px;       /* separación superior opcional */
+  box-sizing: border-box;  
+}
+
+
