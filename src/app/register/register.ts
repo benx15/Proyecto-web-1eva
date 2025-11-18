@@ -20,7 +20,7 @@ export class Register {
       password: formData.password,
       nombre: formData.nombre,
       apellidos: formData.apellidos,
-      fecha_nacimiento: formData.fecha_nacimiento,
+      fechaNacimiento: formData.fecha_nacimiento,
       direccion: formData.direccion
     };
 
