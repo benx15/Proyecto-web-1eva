@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 import { appConfig } from './app/app.config';
 import { AdminLogin } from './app/admin-login/admin-login';
 import { AdminPrincipal } from './app/admin-principal/admin-principal';
+import { Usuarios } from './app/usuarios/usuarios';
 
 
 const routes = [
@@ -15,7 +16,14 @@ const routes = [
   { path: 'register', component: Register },
   { path: 'login', component: Login},
   { path: 'admin-principal', component: AdminPrincipal},
+  { path: 'usuarios', component: Usuarios},
 ];
 
-bootstrapApplication(App, appConfig)
-  .catch(err => console.error(err));
+
+bootstrapApplication(App, {
+  ...appConfig,
+  providers: [
+    provideRouter(routes)
+  ]
+})
+.catch(err => console.error(err));
