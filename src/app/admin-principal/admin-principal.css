@@ -73,10 +73,10 @@
   backdrop-filter: blur(10px);
   border: 2px solid rgba(255, 255, 255, 0.1);
   padding: 2rem 3rem;
-  border-radius: 20px;
+  border-radius: 20px; /* Forma rectangular con esquinas redondeadas */
   color: white;
   cursor: pointer;
-  transition: all 0.4s ease;
+  transition: all 0.4s ease; /* Transición suave para todos los cambios */
   font-size: 1.1rem;
   font-weight: 600;
   display: flex;
@@ -87,8 +87,10 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
+/* Hover: cambia la forma */
 .btn:hover {
-  transform: translateY(-10px) scale(1.05);
+  border-radius: 50%; /* Se hace circular */
+  transform: translateY(-10px) scale(1.05); /* Mantener efecto existente */
   box-shadow: 0 15px 50px rgba(74, 158, 255, 0.4);
 }
 
@@ -104,7 +106,10 @@
 .btn-usuarios:hover {
   background: rgba(74, 158, 255, 0.15);
   border-color: rgba(74, 158, 255, 0.8);
+  box-shadow: 0 15px 50px rgba(74, 158, 255, 0.4);
 }
+
+
 
 /* Botón de logout - rojo */
 .btn-logout {
