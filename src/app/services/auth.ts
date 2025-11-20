@@ -2,6 +2,20 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+export interface Perfil {
+  nombre: string;
+}
+
+export interface Usuario {
+  nombre: string;
+  apellidos: string;
+  username: string;
+  password: string;
+  direccion?: string;
+  fechaNacimiento?: string;
+  perfil: Perfil;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -10,20 +24,15 @@ export class Auth {
 
   constructor(private http: HttpClient) {}
 
-    /** LOGIN con BASIC AUTH */
-    login(username: string, password: string): Observable<any> {
-
-      const headers = new HttpHeaders({
-        Authorization: 'Basic ' + btoa(username + ':' + password)
-      });
+ 
   
-      return this.http.post(`${this.apiUrl}/api/usuarios/login`, {}, { headers });
-    }
-  
-    /** REGISTRO normal */
-    register(usuario: any): Observable<any> {
-      return this.http.post(`${this.apiUrl}/registro`, usuario);
-    }
+  /** REGISTRO normal */
+  register(usuario: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/registro`, usuario);
+  }
+  listarUsuarios(): Observable<Usuario[]> {
+    return this.http.get<Usuario[]>(`${this.apiUrl}/admin/listausu`);
+  }
 }
 
 

@@ -6,7 +6,8 @@ import { AdminPrincipal } from './admin-principal/admin-principal';
 import { Usuarios } from './usuarios/usuarios';
 
 export const routes: Routes = [
-    { path: '', component: Principal },
+    { path: '', component: Principal,  },
+    { path: 'principal', component: Principal },
     { path: 'register', component: Register },
     { path: 'login', component: Login},
     { path: 'admin-principal', component: AdminPrincipal},
