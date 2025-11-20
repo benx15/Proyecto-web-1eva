@@ -10,6 +10,12 @@ import { AdminLogin } from './app/admin-login/admin-login';
 import { AdminPrincipal } from './app/admin-principal/admin-principal';
 import { Usuarios } from './app/usuarios/usuarios';
 import { provideHttpClient , withFetch } from '@angular/common/http'; // <-- IMPORTANTE
+import { GestionarUsuarios } from './app/gestionar-usuarios/gestionar-usuarios';
+import { TablaUsuarios } from './app/tabla-usuarios/tabla-usuarios';
+import { ClientePrincipal } from './app/cliente-principal/cliente-principal';
+import { JefePrincipal } from './app/jefe-principal/jefe-principal';
+import { TrabajadorPrincipal } from './app/trabajador-principal/trabajador-principal';
+import { Logout } from './app/logout/logout';
 
 
 
@@ -19,6 +25,12 @@ const routes = [
   { path: 'login', component: Login},
   { path: 'admin-principal', component: AdminPrincipal},
   { path: 'usuarios', component: Usuarios},
+  { path: 'gestionar-usuarios', component: GestionarUsuarios},
+  { path: 'tabla-usuarios', component: TablaUsuarios},
+  { path: 'cliente-principal', component: ClientePrincipal},
+  { path: 'jefe-principal', component: JefePrincipal},
+  { path: 'trabajador-principal', component: TrabajadorPrincipal},
+  { path: 'logout', component: Logout},
 ];
 
 
