@@ -1,3 +1,18 @@
+:host {
+    display: block;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(
+      135deg,
+      #f1c3ff 0%,
+      #8a658d 50%,
+      #3d3041 100%
+    );
+  }
+
+
 /* Fondo general de toda la página */
 html, body {
   background-color: #000; /* negro */
@@ -160,3 +175,38 @@ main{
 }
 
 
+/* Estilo para el botón de "Atrás" */
+.atras {
+  background: black;  /* Fondo negro sólido */
+  border: 2px solid rgba(255, 255, 255, 0.3); /* Borde blanco suave */
+  padding: 0.5rem 0.8rem;  /* Tamaño más pequeño */
+  border-radius: 50%;  /* Forma circular */
+  color: white;
+  font-size: 1.5rem;  /* Flecha más pequeña */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease; /* Transición rápida */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sombra ligera */
+  font-weight: 700;  /* Flecha en negrita */
+}
+
+/* Hover: Efecto cuando se pasa el cursor */
+.atras:hover {
+  background: #333333;  /* Fondo gris oscuro al pasar el mouse */
+  border-color: rgba(255, 255, 255, 0.6); /* Borde más visible */
+  transform: scale(1.1);  /* Aumento ligero */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra más intensa */
+}
+
+/* Efecto al hacer clic */
+.atras:active {
+  transform: scale(1.05);  /* Efecto de presión más sutil */
+}
+
+/* Asegurarse de que el icono de la flecha se vea adecuado */
+.atras .btn-text {
+  font-size: 1.5rem;  /* Tamaño de la flecha reducido */
+  display: inline-block;
+}

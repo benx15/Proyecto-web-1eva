@@ -1,0 +1,61 @@
+:host {
+    display: block;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ff8585 0%, #b63333 50%, #550000 100%);
+}
+
+.mensaje-logout {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #333333;
+    color: white;
+    padding: 20px 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.mensaje-logout h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+/* Div contenedor del botón */
+.boton-volver-pagina-inicio {
+    position: fixed;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;  /* Ancho del contenedor */
+    height: 60px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Botón que ocupa todo el div */
+.boton-volver-pagina-inicio button {
+    width: 100%;  /* El botón ocupa todo el ancho del contenedor */
+    height: 100%;
+    background-color: white;
+    color: black;
+    border: none;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+}
+
+
+.boton-volver-pagina-inicio button:hover {
+    background-color: #f0f0f0;  /* Fondo gris claro al hacer hover */
+    color: black;  /* Las letras siguen siendo negras */
+}

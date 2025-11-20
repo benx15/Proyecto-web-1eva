@@ -121,3 +121,14 @@
     padding: 8px 16px;
   }
 }
+
+.saludo {
+  margin-left: 20px; /* Ajusta la posición horizontal */
+  padding-left: 0;
+  text-align: left;
+  position: absolute;
+  left: 0;
+  top: 10px; /* Reduce el valor para mover el h1 más arriba */
+  font-size: 3rem;
+  color: white;
+}
