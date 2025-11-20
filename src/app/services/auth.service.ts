@@ -1,9 +1,23 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs';
 
+
+export interface Perfil {
+  nombre: string;
+}
+
+export interface Usuario {
+  nombre: string;
+  apellidos: string;
+  username: string;
+  password: string;
+  direccion?: string;
+  fechaNacimiento?: string;
+  perfil: Perfil;
+}
 export interface User {
   id: string;
   email: string;
@@ -14,19 +28,21 @@ export interface LoginResponse {
   user: User;
   token: string;
 }
-//@Injectable({
+@Injectable({
   providedIn: 'root'// Cambiar por nuestro root antes de usar y remover barra de comentarios
-//})
+})
 export class AuthService {
   private currentUserSubject: BehaviorSubject<User | null>;
   public currentUser: Observable<User | null>;
-  private apiUrl = 'https://localhost:9001';
+  private apiUrl = 'http://localhost:9001';
 
   constructor(
     private http: HttpClient,
     private router: Router
   ) {
-    const storedUser = localStorage.getItem('currentUser');
+    const storedUser = (typeof window !== 'undefined' && localStorage.getItem('currentUser'))
+  ? localStorage.getItem('currentUser')
+  : null;
     let parsedUser: User | null = null;
     try{
       parsedUser = storedUser  ? JSON.parse(storedUser) : null;
@@ -42,16 +58,37 @@ export class AuthService {
     return this.currentUserSubject.value
   }
 
-  login(email: string, password: string): Observable<User> {
-    return this.http.post<LoginResponse>(`${this.apiUrl}/login`, { email, password })
+  login(email: string, password: string): Observable<any> {
+    const headers = new HttpHeaders({
+      Authorization: 'Basic ' + btoa(email + ':' + password)
+    });
+  
+    return this.http.post<any>(`${this.apiUrl}/api/usuarios/login`, null, { headers })
       .pipe(
         map(response => {
-          // Guardar usuario y token en localStorage
-          localStorage.setItem('currentUser', JSON.stringify(response.user));
-          localStorage.setItem('token', response.token);
-          this.currentUserSubject.next(response.user);
-          return response.user;
+          const userWithPassword = { ...response, password };
+          localStorage.setItem('currentUser', JSON.stringify(userWithPassword));
+          this.currentUserSubject.next(userWithPassword);
+          return userWithPassword;
         })
       );
+  }
+
+  crearUsuario(usuario: Usuario): Observable<Usuario> {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+    if (!currentUser || !currentUser.password) {
+      throw new Error('Usuario no logueado');
+    }
+  
+    const headers = new HttpHeaders({
+      'Authorization': 'Basic ' + btoa(currentUser.username + ':' + currentUser.password)
+    });
+  
+    return this.http.post<Usuario>(
+      'http://localhost:9001/admin/crearusu',
+      usuario,
+      { headers }
+    );
+  
   }
 }

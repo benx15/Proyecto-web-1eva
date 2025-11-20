@@ -9,6 +9,7 @@ import { appConfig } from './app/app.config';
 import { AdminLogin } from './app/admin-login/admin-login';
 import { AdminPrincipal } from './app/admin-principal/admin-principal';
 import { Usuarios } from './app/usuarios/usuarios';
+import { provideHttpClient , withFetch } from '@angular/common/http'; // <-- IMPORTANTE
 import { GestionarUsuarios } from './app/gestionar-usuarios/gestionar-usuarios';
 import { TablaUsuarios } from './app/tabla-usuarios/tabla-usuarios';
 import { ClientePrincipal } from './app/cliente-principal/cliente-principal';
@@ -36,7 +37,8 @@ const routes = [
 bootstrapApplication(App, {
   ...appConfig,
   providers: [
-    provideRouter(routes)
+    provideRouter(routes),
+    provideHttpClient(withFetch()) 
   ]
 })
 .catch(err => console.error(err));

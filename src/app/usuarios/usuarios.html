@@ -2,50 +2,53 @@
     <span class="btn-text"><</span>
 </button>
 <main>
-<div class="form-container">
-  <h2>Agregar Usuario</h2>
-
-  <form id="formUsuario">
-      <div class="form-row">
+    <div class="form-container">
+      <h2>Agregar Usuario</h2>
+  
+      <form (ngSubmit)="crearUsuario()" id="formUsuario">
+        
+        <div class="form-row">
           <label>Username:</label>
-          <input type="text" id="username" required>
-      </div>
-
-      <div class="form-row">
+          <input type="text" [(ngModel)]="nuevoUsuario.username" name="username" id="username" required>
+        </div>
+  
+        <div class="form-row">
           <label>Password:</label>
-          <input type="password" id="password" required>
-      </div>
-
-      <div class="form-row">
+          <input type="password" [(ngModel)]="nuevoUsuario.password" name="password" id="password" required>
+        </div>
+  
+        <div class="form-row">
           <label>Nombre:</label>
-          <input type="text" id="nombre" required>
-      </div>
-
-      <div class="form-row">
+          <input type="text" [(ngModel)]="nuevoUsuario.nombre" name="nombre" id="nombre" required>
+        </div>
+  
+        <div class="form-row">
           <label>Apellidos:</label>
-          <input type="text" id="apellidos" required>
-      </div>
-
-      <div class="form-row">
+          <input type="text" [(ngModel)]="nuevoUsuario.apellidos" name="apellidos" id="apellidos" required>
+        </div>
+  
+       
+  
+        <div class="form-row">
           <label>Fecha Nacimiento:</label>
-          <input type="date" id="fechaNacimiento" required>
-      </div>
-
-      <div class="form-row">
+          <input type="date" [(ngModel)]="nuevoUsuario.fechaNacimiento" name="fechaNacimiento" id="fechaNacimiento" required>
+        </div>
+  
+        <div class="form-row">
           <label>Dirección:</label>
-          <input type="text" id="direccion" required>
-      </div>
-
-      <div class="form-row">
-        <label>Perfil:</label>
-        <select id="perfil" required>
+          <input type="text" [(ngModel)]="nuevoUsuario.direccion" name="direccion" id="direccion" required>
+        </div>
+  
+        <div class="form-row">
+          <label>Perfil:</label>
+          <select [(ngModel)]="nuevoUsuario.perfil.nombre" name="perfil" id="perfil" required>
             <option value="">Seleccione un perfil</option>
-            <option value="Trabador">3</option>
-            <option value="Jefe">4</option>
-        </select>
-      </div>
-
-      <button type="submit" class="btn">Agregar Usuario</button>
-  </form>
-</div>
-</main>
+            <option value="ROLE_TRABAJADOR">Trabajador</option>
+            <option value="ROLE_JEFE">Jefe</option>
+          </select>
+        </div>
+  
+        <button type="submit" class="btn">Agregar Usuario</button>
+      </form>
+    </div>
+  </main>
