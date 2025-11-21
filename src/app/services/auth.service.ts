@@ -21,7 +21,7 @@ export interface Usuario {
 export interface User {
   id: string;
   email: string;
-  role: 'admin' | 'client';
+  role: 'admin' | 'client' | 'trabajador'|'jefe';
   name: string;
 }
 export interface LoginResponse {
