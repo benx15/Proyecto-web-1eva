@@ -3,22 +3,27 @@
     <h2>Iniciar Sesión</h2>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div>
-        <label>Email:</label>
+        <div class="correo-texto">
+          <label>Correo:</label>
+        </div>
         <input type="email" formControlName="email">
       </div>
     
-      <div>
-        <label>Contraseña:</label>
+      <div class="">
+        <div class="contraseña-texto">
+          <label>Contraseña:</label>
+        </div>
         <input type="password" formControlName="password">
       </div>
     
       <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
-    
-      <button type="submit" [disabled]="loading">Login</button>
+        <div class="btn-login">
+          <button type="submit" [disabled]="loading">Login</button>
+        </div>
     </form>
 
     <p class="register-link">
-      ¿No tienes cuenta? <a routerLink="/register">Regístrate</a>
+      ¿No tienes cuenta? <a routerLink="/">Regístrate</a>
     </p>
   </div>
 </div>

@@ -25,6 +25,7 @@ export interface User {
   email: string;
   role: 'admin' | 'client' | 'trabajador'|'jefe';
   name: string;
+  token?: string; // Added optional token property
 }
 export interface LoginResponse {
   user: User;
@@ -74,6 +75,41 @@ export class AuthService {
           return userWithPassword;
         })
       );
+  }
+
+
+  logout(): Observable<any> {
+    const currentUser = this.currentUserValue;
+    
+    if (!currentUser) {
+      this.clearAuthData();
+      return new Observable(observer => {
+        observer.next({ message: 'Sesión cerrada' });
+        observer.complete();
+      });
+    }
+
+    const headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + currentUser.token
+    });
+
+    return this.http.post<any>(`${this.apiUrl}/api/logout`, {}, { headers })
+      .pipe(
+        map(response => {
+          this.clearAuthData();
+          return response;
+        })
+      );
+  }
+
+  private clearAuthData(): void {
+    localStorage.removeItem('currentUser');
+    this.currentUserSubject.next(null);
+    this.router.navigate(['/login']);
+  }
+
+  isLoggedIn(): boolean {
+    return this.currentUserValue !== null;
   }
 
   crearUsuario(usuario: Usuario): Observable<Usuario> {

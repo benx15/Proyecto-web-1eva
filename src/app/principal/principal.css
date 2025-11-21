@@ -5,17 +5,49 @@
   padding: 0;
   font-family: "Segoe UI", sans-serif;
   color: white;
-  /* Fondo con degradado que te gustaba */
+  /* Fondo con nuevo degradado retro-videogame */
   background: linear-gradient(
     180deg,
-    #ffffff 0%,
-    #cccccc 25%,
-    #999999 50%,
-    #333333 75%,
-    #000000 100%
+    #0d0d2f 0%,   /* azul oscuro tipo noche */
+    #1a1a4d 25%,  /* azul más claro */
+    #2e2e70 50%,  /* azul violeta */
+    #5a5aa0 75%,  /* azul brillante */
+    #000000 100%  /* negro profundo */
   );
   animation: fadeIn 1.2s ease-out;
 }
+
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.logo {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.2rem;
+  color: #FFD60A; /* amarillo retro */
+  text-shadow: 2px 2px 0 #FF3C38, -2px -2px 0 #00FFA3; /* efecto arcade */
+  margin-right: auto; /* empuja los botones hacia la derecha */
+}
+
+
+.welcome-text {
+  font-size: 2rem; /* suficientemente grande para resaltar */
+  font-weight: bold;
+  color: #FFD60A; /* amarillo retro */
+  text-shadow: 2px 2px 0 #FF3C38, -2px -2px 0 #00FFA3; /* estilo arcade */
+  letter-spacing: 1px;
+  animation: glow 2.5s infinite alternate ease-in-out,
+             slideIn 1s ease-out;
+  max-width: 90%; /* se adapta al tamaño de pantalla */
+  line-height: 1.4;
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;  /* alinea verticalmente al inicio */
+  justify-content: center;  /* centra horizontalmente */
+  gap: 15px;                /* espacio entre texto principal y comentario */
+  flex-wrap: wrap;          /* para pantallas pequeñas se apilen */
+}
+
 
 /* Fade in suave de la página */
 @keyframes fadeIn {
@@ -37,7 +69,7 @@
   width: 100%;
   background: #1a1a1a; /* Color sólido oscuro */
   padding: 15px 30px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.4); /* Solo sombra simple */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.4);
 }
 
 .nav-content {
@@ -53,7 +85,7 @@
   padding: 10px 22px;
   margin-left: 14px;
   border-radius: 30px;
-  background: linear-gradient(145deg, #272727, #d3d2d2);
+  background: linear-gradient(145deg, #272727, #4444aa); /* Azul retro */
   color: white;
   cursor: pointer;
   border: none;
@@ -65,7 +97,7 @@
 }
 
 .btn:hover {
-  background: linear-gradient(145deg, #919191, #797979);
+  background: linear-gradient(145deg, #5555cc, #2727aa);
   transform: translateY(-3px);
   box-shadow:
     0 8px 16px rgba(0,0,0,0.5),
@@ -83,6 +115,21 @@
   text-align: center;
 }
 
+.hero-images {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* espacio entre imágenes */
+  flex-wrap: wrap; /* se adapta a móviles */
+}
+
+.imagen {
+  width: 450px; /* imágenes más grandes */
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* glow arcade */
+}
+
+
 /* Texto animado tipo glow */
 .welcome-text {
   font-size: 4rem;
@@ -91,6 +138,7 @@
   letter-spacing: 3px;
   animation: glow 2.5s infinite alternate ease-in-out,
              slideIn 1s ease-out;
+  text-shadow: 2px 2px 4px #5555ff; /* Glow azul retro */
 }
 
 /* Glow respirante */
@@ -123,12 +171,13 @@
 }
 
 .saludo {
-  margin-left: 20px; /* Ajusta la posición horizontal */
+  margin-left: 20px; 
   padding-left: 0;
   text-align: left;
   position: absolute;
   left: 0;
-  top: 10px; /* Reduce el valor para mover el h1 más arriba */
+  top: 10px; 
   font-size: 3rem;
-  color: white;
+  color: #FFD60A; /* amarillo retro */
+  text-shadow: 2px 2px 0 #FF3C38, -2px -2px 0 #00FFA3; /* estilo arcade */
 }
