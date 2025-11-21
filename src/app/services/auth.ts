@@ -7,13 +7,14 @@ export interface Perfil {
 }
 
 export interface Usuario {
-  nombre: string;
-  apellidos: string;
+  id: number;
   username: string;
-  password: string;
-  direccion?: string;
+  password?: string;
+  nombre?: string;
+  apellidos?: string;
   fechaNacimiento?: string;
-  perfil: Perfil;
+  direccion?: string;
+  perfil?: string;
 }
 
 @Injectable({
@@ -30,9 +31,7 @@ export class Auth {
   register(usuario: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/registro`, usuario);
   }
-  listarUsuarios(): Observable<Usuario[]> {
-    return this.http.get<Usuario[]>(`${this.apiUrl}/admin/listausu`);
-  }
+  
 }
 
 
