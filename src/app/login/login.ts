@@ -46,6 +46,12 @@ export class Login {
         // Redirigir según rol
         if (user.perfil.nombre === 'ROLE_ADMON') {
           this.router.navigate(['/admin-principal']);
+        } else if (user.perfil.nombre === 'ROLE_CLIENTE') {
+          this.router.navigate(['/cliente-principal']);
+        } else if (user.perfil.nombre === 'ROLE_TRABAJADOR') {
+          this.router.navigate(['/trabajador-principal']);
+        } else if (user.perfil.nombre == 'ROLE_JEFE') {
+          this.router.navigate(['/jefe-principal']);
         } else {
           this.router.navigate(['/']);
         }
@@ -53,7 +59,7 @@ export class Login {
       },
       error: err => {
         console.error(err);
-        this.errorMessage = 'Email o contraseña incorrectos';
+        this.errorMessage = 'Email o Contraseña Incorrectos';
         this.loading = false;
       }
     });
