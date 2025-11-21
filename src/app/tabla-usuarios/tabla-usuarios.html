@@ -1,58 +1,45 @@
 <button routerLink="/gestionar-usuarios" class="atras">
-  <span class="btn-text"><</span>
+  <span class="btn-text">Atrás</span>
 </button>
 
 <div class="tabla-container">
-    <h1 style="text-align: center; margin-top: 20px;">Tabla de Usuarios</h1>
-  
-    <div class="table-wrapper">
-      <table>
-        <thead>
-          <tr>
-            <th>Username</th>
-            <th>Password</th>
-            <th>Nombre</th>
-            <th>Apellidos</th>
-            <th>Fecha Registro</th>
-            <th>Fecha Nacimiento</th>
-            <th>Dirección</th>
-            <th>Perfil</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Aquí se agregarán las filas dinámicamente más tarde -->
-          <tr>
-            <td>juanperez</td>
-            <td>1234abcd</td>
-            <td>Juan</td>
-            <td>Pérez</td>
-            <td>2022-03-10</td>
-            <td>1990-05-15</td>
-            <td>Calle Falsa 123, Ciudad X</td>
-            <td><a href="#">Ver Perfil</a></td>
-          </tr>
-          <tr>
-            <td>maria23</td>
-            <td>abcd5678</td>
-            <td>María</td>
-            <td>González</td>
-            <td>2021-07-25</td>
-            <td>1992-08-20</td>
-            <td>Avenida Libertad 456, Ciudad Y</td>
-            <td><a href="#">Ver Perfil</a></td>
-          </tr>
-          <tr>
-            <td>luisfer</td>
-            <td>5678qwert</td>
-            <td>Luis</td>
-            <td>Fernández</td>
-            <td>2020-11-11</td>
-            <td>1985-12-05</td>
-            <td>Calle Río 789, Ciudad Z</td>
-            <td><a href="#">Ver Perfil</a></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  <h1>Tabla de Usuarios</h1>
+
+  <div *ngIf="cargando" class="info">Cargando usuarios...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <div class="table-wrapper" *ngIf="!cargando && !error">
+    <table>
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Password</th>
+          <th>Nombre</th>
+          <th>Apellidos</th>
+          <th>Fecha Registro</th>
+          <th>Fecha Nacimiento</th>
+          <th>Dirección</th>
+          <th>Perfil</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of usuariosPaginados()">
+          <td>{{ user.username }}</td>
+          <td>{{ user.password }}</td>
+          <td>{{ user.nombre }}</td>
+          <td>{{ user.apellidos }}</td>
+          <td>{{ user.fechaRegistro | date }}</td>
+          <td>{{ user.fechaNacimiento | date }}</td>
+          <td>{{ user.direccion }}</td>
+          <td>{{ user.perfil.idPerfil }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  
+
+  <div class="paginacion" *ngIf="usuarios.length > itemsPorPagina">
+    <button (click)="anteriorPagina()" [disabled]="paginaActual === 1">Anterior</button>
+    <span>Página {{ paginaActual }} de {{ totalPaginas() }}</span>
+    <button (click)="siguientePagina()" [disabled]="paginaActual * itemsPorPagina >= usuarios.length">Siguiente</button>
+  </div>
+</div>
