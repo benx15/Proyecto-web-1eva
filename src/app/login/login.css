@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #6289d1, #18366b, #1C1C1C); /* Azul degradado */
+  background: linear-gradient(135deg, #6289d1, #18366b, #1C1C1C);
   font-family: 'Segoe UI', sans-serif;
 }
 
@@ -17,6 +17,10 @@
   box-shadow: 0 8px 25px rgba(0,0,0,0.5);
   color: white;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Título */
@@ -26,41 +30,59 @@
   font-weight: 700;
 }
 
-/* Formularios */
+/* Formulario */
 .login-box form {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
-.login-box label {
+/* Cada fila de label + input */
+.login-box form > div {
+  display: flex;           /* label e input en línea */
+  align-items: center;     /* centrado vertical */
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+/* Labels a la izquierda */
+.correo-texto label,
+.contraseña-texto label {
+  width: 100px;            /* ancho fijo para alinear labels */
+  margin-right: 10px;      /* espacio entre label e input */
   text-align: left;
-  margin-bottom: 5px;
   font-weight: 500;
 }
 
+/* Inputs */
 .login-box input {
+  flex: 1;                 /* ocupa el resto del espacio */
   padding: 10px 12px;
-  margin-bottom: 20px;
   border-radius: 6px;
   border: none;
   outline: none;
   font-size: 1rem;
+  box-sizing: border-box;
 }
 
-/* Botón de login */
-.btn-login {
-  padding: 12px;
-  border-radius: 6px;
+/* Botón login */
+.btn-login button {
+  padding: 16px 0;
+  border-radius: 8px;
   border: none;
-  background-color: #2A5298; /* azul principal */
+  background: linear-gradient(135deg, #6289d1, #18366b);
   color: white;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   transition: 0.3s ease;
+  width: 100%;
+  margin-top: 10px;
+  font-size: 1.1rem;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
 }
 
-.btn-login:hover {
-  background-color: #1E3C72; /* azul más oscuro */
+.btn-login button:hover {
+  background: linear-gradient(135deg, #18366b, #6289d1);
 }
 
 /* Enlace para registro */
@@ -70,7 +92,7 @@
 }
 
 .register-link a {
-  color: #70C1FF; /* azul claro */
+  color: #70C1FF;
   text-decoration: none;
   font-weight: 500;
 }
@@ -78,3 +100,4 @@
 .register-link a:hover {
   text-decoration: underline;
 }
+  
