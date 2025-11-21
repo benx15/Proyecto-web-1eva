@@ -20,7 +20,7 @@ export class Usuarios {
     password: '',
     direccion: '',
     fechaNacimiento: '',
-    perfil: { nombre: '' }
+    perfil: { idPerfil: 0, nombre: '' }
   };
 
   constructor(private AuthService: AuthService, private router: Router) {}

@@ -6,6 +6,7 @@ import { map } from 'rxjs';
 
 
 export interface Perfil {
+  idPerfil: number;
   nombre: string;
 }
 
@@ -16,6 +17,7 @@ export interface Usuario {
   password: string;
   direccion?: string;
   fechaNacimiento?: string;
+  fechaRegistro?: string
   perfil: Perfil;
 }
 export interface User {
@@ -90,5 +92,13 @@ export class AuthService {
       { headers }
     );
   
+  }
+
+  listarUsuarios(): Observable<Usuario[]> {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+    const headers = new HttpHeaders({
+      'Authorization': 'Basic ' + btoa(currentUser.username + ':' + currentUser.password)
+    });
+    return this.http.get<Usuario[]>(`${this.apiUrl}/admin/listausu`, { headers });
   }
 }
